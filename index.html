@@ -3,13 +3,171 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>México en mi Sangre - Alta Cocina</title>
+    <title>México en mi Sangre - Alta Cocina Tradicional</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css">
     <link rel="shortcut icon" href="imagenes/favicon.png" type="image/x-icon">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --oro: #C5A059;
+            --oscuro: #1A1A1A;
+            --gris: #252525;
+            --blanco: #F5F5F5;
+            --fuente-titulo: 'Playfair Display', serif;
+            --fuente-texto: 'Open Sans', sans-serif;
+        }
+
+        /* --- RESET GENERAL --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fuente-texto);
+            background-color: var(--oscuro);
+            color: var(--blanco);
+            line-height: 1.6;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            background: rgba(0,0,0,0.95);
+            padding: 15px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .contenedor-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo h1 {
+            font-family: var(--fuente-titulo);
+            color: var(--oro);
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+
+        .enlaces a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .enlaces a:hover { color: var(--oro); }
+
+        /* --- HEADER --- */
+        header {
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .textos-header h1 { font-family: var(--fuente-titulo); font-size: 50px; }
+
+        /* --- SECCIONES --- */
+        .contenedor { padding: 80px 5%; max-width: 1200px; margin: auto; }
+        .titulo { text-align: center; color: var(--oro); font-family: var(--fuente-titulo); font-size: 40px; margin-bottom: 50px; }
+
+        /* --- MENÚ (Fotos Circulares) --- */
+        .menu-listado {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .item-menu {
+            background: var(--gris);
+            padding: 20px;
+            border-bottom: 2px solid var(--oro);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .item-menu img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid var(--oro);
+            object-fit: cover;
+        }
+
+        .info-platillo h4 { color: var(--oro); font-family: var(--fuente-titulo); margin-bottom: 5px; }
+        .precio { color: var(--oro); font-weight: bold; }
+
+        /* --- GALERÍA EXPERIENCIAS --- */
+        .galeria-experiencia {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .foto-card {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--oro);
+        }
+
+        .foto-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .foto-card:hover img { transform: scale(1.1); }
+        .pie-foto { position: absolute; bottom: 0; background: rgba(0,0,0,0.8); width: 100%; padding: 10px; text-align: center; }
+
+        /* --- FOOTER --- */
+        footer { background: #080808; padding: 60px 0 20px; border-top: 1px solid #222; }
+        .contenedor-footer {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+            gap: 30px;
+            text-align: center;
+        }
+        .content-foo h4 { color: var(--oro); margin-bottom: 15px; font-family: var(--fuente-titulo); }
+        .content-foo p { margin-bottom: 10px; color: #ccc; font-size: 14px; }
+        .content-foo i { color: var(--oro); margin-right: 10px; }
+        .social-foo a { color: white; font-size: 22px; margin: 0 10px; transition: 0.3s; }
+        .social-foo a:hover { color: var(--oro); }
+        .titulo-final { text-align: center; margin-top: 40px; font-size: 12px; color: #444; }
+
+        @media (max-width: 768px) {
+            .contenedor-nav { flex-direction: column; gap: 15px; }
+            .textos-header h1 { font-size: 35px; }
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <nav>
             <section class="contenedor-nav">
@@ -34,27 +192,27 @@
         <section id="menu-simple" class="contenedor">
             <h2 class="titulo">Nuestra Carta</h2>
             <div class="menu-listado">
-                <div class="item-menu with-img">
+                <div class="item-menu">
                     <img src="imagenes/platillo1.png" alt="Ceviche">
                     <div class="info-platillo">
-                        <h4>Ceviche de Robalo al Mezcal</h4>
-                        <p>Fresco robalo curado en cítricos con un toque de mezcal espadín.</p>
+                        <h4>Ceviche de Robalo</h4>
+                        <p>Fresco robalo curado en cítricos con mezcal.</p>
                         <span class="precio">$390</span>
                     </div>
                 </div>
-                <div class="item-menu with-img">
+                <div class="item-menu">
                     <img src="imagenes/platillo2.png" alt="Rib Eye">
                     <div class="info-platillo">
-                        <h4>Rib-Eye en Costra de Café</h4>
-                        <p>Corte Angus certificado con costra de café oaxaqueño.</p>
+                        <h4>Rib-Eye Costra Café</h4>
+                        <p>Corte Angus con café oaxaqueño.</p>
                         <span class="precio">$650</span>
                     </div>
                 </div>
-                <div class="item-menu with-img">
+                <div class="item-menu">
                     <img src="imagenes/platillo3.png" alt="Tarta">
                     <div class="info-platillo">
-                        <h4>Tarta de Elote y Carajillo</h4>
-                        <p>Deliciosa tarta de elote tierno con salsa cremosa de carajillo.</p>
+                        <h4>Tarta de Elote</h4>
+                        <p>Tarta de elote tierno y carajillo.</p>
                         <span class="precio">$280</span>
                     </div>
                 </div>
@@ -114,5 +272,6 @@
         </div>
         <h2 class="titulo-final">&copy; 2026 México en mi Sangre. Todos los derechos reservados.</h2>
     </footer>
+
 </body>
 </html>
